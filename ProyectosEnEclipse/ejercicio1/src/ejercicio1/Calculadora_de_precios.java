@@ -8,17 +8,18 @@ public class Calculadora_de_precios {
 		//Variables
 		Scanner sc = new Scanner(System.in);
 		double PrecioBase;
-		double Ganancias= 0.3 ;
-		double Impuestos=0.21 ;
-		double PrecioBaseMasGanancias;
+		
+		
 		//funciones
 		System.out.println("Introduzca por teclado el precio base");
 		PrecioBase = sc.nextDouble();
-		double PrecioFinal = (PrecioBase*Ganancias);
+		double Ganancias=((PrecioBase * 30)/100) ;
+		double Impuestos=((PrecioBase * 21)/100);
+		double PrecioFinal = (PrecioBase+Ganancias+Impuestos);
 		if(PrecioFinal>600) {
-			System.out.println("El precio final del producto de lujo es de: " + PrecioFinal);
+			System.out.println("El precio final del producto de lujo es de: " + PrecioFinal+"€");
 		}else {
-			System.out.println("El precio final del producto es de: " + PrecioFinal);
+			System.out.println("El precio final del producto es de: " + PrecioFinal+"€");
 		}
 		
 		
