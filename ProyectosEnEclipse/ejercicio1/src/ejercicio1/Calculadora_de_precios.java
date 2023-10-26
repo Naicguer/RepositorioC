@@ -22,7 +22,7 @@ public class Calculadora_de_precios {
 			System.out.println("El precio final del producto es de: " + PrecioFinal+"€");
 		}
 		
-		
+		sc.close();
 	}
 
 }
