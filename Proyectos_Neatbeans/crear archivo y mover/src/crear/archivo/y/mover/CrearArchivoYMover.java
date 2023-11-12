@@ -23,7 +23,7 @@ public class CrearArchivoYMover {
         File Directori = new File ("C:\\temp\\text");
         File A2= new File("C:\\temp\\text\\text2.txt");
         
-        /*
+        
         if(!A1.exists()){
         A1.createNewFile();
         System.out.println("El archivo tuvo que ser creado");
@@ -34,8 +34,12 @@ public class CrearArchivoYMover {
         }else{
             System.out.println("El archivo ya existe");
         }
-        */
-        File.move(A1,A2);
+        
+        if(A1.renameTo(A2)){
+            System.out.println("El fichero se movió correctamente!");
+        }else{
+            System.out.println("El fichero no pudo moverse!");
+        }
         
         }catch(Exception e){
             e.printStackTrace();
