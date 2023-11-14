@@ -25,19 +25,28 @@ public class Crear_y_Mover_directorios {
             case "crear":
                 System.out.println("Se a selecionado crear");
                 crearArchivos();
-            break;
+                break;
+            
             case "revisar":
                 System.out.println("Se a selecionado revisar");
                 ultModific();
-            break;
+                break;
+            
             case "mover":
                 System.out.println("Se a selecionado mover");
                 moverCarp();
-            break;
+                break;
+            
+            case "copiar":
+                System.out.println("Se a selecionado copiar");
+                copiarArch();
+                break;
+ 
             case "fin":
                 System.out.println("finalizando programa");
                 fin =true;
-            break;
+                break;
+            
             default:
                 System.out.println("datos intorducidos errorenos ");
               
@@ -46,6 +55,37 @@ public class Crear_y_Mover_directorios {
         sc.close();
     }
     public static Scanner sc = new Scanner(System.in);
+    
+    private static void copiarArch(){
+        
+        System.out.println("Introduce el nombre de archivo que quieres copiar");
+        String lerAr=sc.nextLine();
+        File buscarLerAr=new File(lerAr);
+        
+        
+        System.out.println("Introduce el nombre del archivo al que quieres pasar los datos");
+        String pegarAr=sc.nextLine();
+        File buscarPegarAr=new File(pegarAr);
+        
+        
+        
+        try{
+        FileInputStream dentro = new FileInputStream(buscarLerAr);
+        FileOutputStream fuera = new FileOutputStream(buscarPegarAr);
+        
+        int recorrer;
+        while ((recorrer = dentro.read())!=-1){
+        fuera.write(recorrer);
+        }
+        
+        sc.close();
+        System.out.println("Los datos an sido copiados");
+        
+        
+        }catch(IOException e){
+            System.out.println("Ocurrio un error"+e.getMessage());
+        }
+    }
     private static void moverCarp(){
         System.out.println("Introduce el nombre de archivo que quieres mover");
         String arch= sc.nextLine();
@@ -77,7 +117,7 @@ public class Crear_y_Mover_directorios {
     private static void crearArchivos() {
         System.out.println("Ingrese la ruta de los archivos");
         String rutaDirec ="C:\\temp";
-        System.out.println("Cantidad ?");
+        System.out.println("Cantidad de archivos ?");
         int cantArchivos=sc.nextInt();
         
         sc.nextLine();
