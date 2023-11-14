@@ -18,6 +18,7 @@ public class Crear_y_Mover_directorios {
         System.out.println("Quieres crear archivos escribe (crear)");
         System.out.println("Quieres ver la utima modificacion (revisar)");
         System.out.println("Quieres mover archivos (mover)");
+        System.out.println("Quieres copiar un archivo (copiar)");
         System.out.println("Si desea cerrar el programa ponga (fin)");
         
         decision=sc.nextLine();
