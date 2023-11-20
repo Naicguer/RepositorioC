@@ -2,13 +2,15 @@
 package procesos.pkg2;
 
 import java.io.*;
+import java.lang.ProcessBuilder.Redirect;
 import java.util.*;
 
 public class Procesos2 {
 
-    public static Scanner sc = new Scanner(System.in);
+    
     
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         int numero1,numero2;
         
         System.out.println("Dame un numero");
@@ -42,8 +44,8 @@ public class Procesos2 {
         
         ProcessBuilder builder = new ProcessBuilder(javaBin, "-cp",classpath,className,String.valueOf(n1),String.valueOf(n2));
         
-        builder.redirectError(new File("Errores.txt"));
-        builder.redirectOutput(new File("Errores.txt"));
+        builder.redirectError(Redirect.INHERIT);
+        builder.redirectOutput(Redirect.INHERIT);
         
         Process process = builder.start();
         process.waitFor();
