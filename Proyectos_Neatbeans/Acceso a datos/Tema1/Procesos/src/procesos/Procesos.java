@@ -1,9 +1,11 @@
 package procesos;
 
+import java.util.*;
 import java.io.*;
 
 public class Procesos {
 
+    public static Scanner sc = new Scanner(System.in);
     
     public static void main(String[] args) {
     
@@ -11,9 +13,14 @@ public class Procesos {
         
         ProcessBuilder ejecutar = new ProcessBuilder(ruta);
         
+        
         try{
             
            Process proceso=ejecutar.start();
+           System.out.println("Terminar el proceso?(S/N)");
+           if(sc.nextLine().charAt(0)=='S'){
+               proceso.destroy();
+           }
            int devolver = proceso.waitFor();
            System.out.println("La ejecucion de "+ruta+" devuelve "+devolver);
            
