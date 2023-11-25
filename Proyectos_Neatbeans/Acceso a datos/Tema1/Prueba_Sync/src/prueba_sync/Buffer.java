@@ -11,13 +11,32 @@ package prueba_sync;
 public class Buffer {
     
     private int contenido;
+    private boolean disponible = false;
     
-    public int get(){
+    public synchronized int get(){
+        
+        while(disponible == false ){
+            
+            try{
+                wait();
+            }catch(InterruptedException e){} 
+        }
+        disponible = false;
+        notify();
         return contenido;
     }
     
-    public void put(int value){
+    public synchronized void put(int value){
+        
+        while(disponible == true ){
+            
+            try{
+                wait();
+            }catch(InterruptedException e){} 
+        }
         contenido = value;
+        disponible = true;
+        notify();
     }
     
     
